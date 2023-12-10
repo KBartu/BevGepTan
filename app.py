@@ -1,6 +1,4 @@
 import streamlit as st
-import tensorflow as ts
-import numpy as np
 import pickle
 
 #python -m streamlit run app.py
