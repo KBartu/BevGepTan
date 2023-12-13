@@ -7,7 +7,7 @@ loaded_model = pickle.load(open('dtClassifier.sav','rb'))
 
 st.write("""
          # LA Crimes Classification
-         EI52B1
+         Koltai Barnabás - EI52B1
          """)
 
 def click():
@@ -22,13 +22,23 @@ def predOff():
 def reset():
     st.session_state.bt = False
     st.session_state.pred = False
+    st.session_state.links = False
+
+def lnk():
+    st.session_state.links = True
 
 if('bt' not in st.session_state):
     st.session_state.bt = False
     st.session_state.pred = False
+    st.session_state.links = False
 
 if(st.session_state.bt is False):
     startButton = st.button('Start the classification', on_click=click)
+    linksButton = st.button('Links', on_click=lnk)
+    if(st.session_state.links):
+        st.write('Dataset: https://www.kaggle.com/datasets/chaitanyakck/crime-data-from-2020-to-present?select=Crime_Data_from_2010_to_2019.csv')
+        st.write('Git Repository: https://github.com/KBartu/BevGepTan')
+        st.button('Close Links', on_click=reset)
 
 col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
 
